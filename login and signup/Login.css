@@ -1,0 +1,336 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+    }
+
+.main-bar{
+    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+   background-color:  #ebc04b;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom:  solid 3px rgba(0, 0, 0, 0.2);
+
+
+}
+.leftsec{
+    width: 500px;
+    margin-left: 20px;
+
+}
+.middlesec{
+    flex: 1;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.product-page-name{
+  margin-top: 30px;
+  margin-bottom:35px ;
+
+}
+.page-name-text{
+  display: inline-block;
+  margin-left: 140px;
+  border: 1px solid #1e1e1e ;
+  border-radius: 25px;
+  padding: 10px;
+  
+ 
+}
+.left-sec{
+ display: grid;
+ grid-template-columns: 120px 120px 100px;
+ align-items: center;
+ margin-left: 30px;
+ margin-top: 0px;
+ color: black;
+}
+.btn{
+  position: fixed;
+  top: 13px;
+  left: 100px;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+ color: #1b1b1b;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: left 0.4s ease;
+}
+.btn.click{
+  left: 260px;
+}
+.btn span{
+  color: rgb(12, 12, 12);
+  font-size: 28px;
+  line-height: 45px;
+}
+.btn.click span:before{
+  content: '\f00d';
+}
+.sidebar{
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  left: -250px;
+  background: #000000;
+  transition: left 0.4s ease;
+}
+.sidebar.show{
+  left: 0px;
+  top: 0;
+}
+.sidebar .text{
+  color: white;
+  
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 65px;
+  text-align: center;
+  background: rgb(0, 0, 0); ;
+  letter-spacing: 1px;
+}
+nav ul{
+  background: #ebc04b; 
+  height: 100%;
+  width: 100%;
+  list-style: none;
+}
+nav ul li{
+  line-height: 60px;
+  border-top: 1px solid rgba(147, 13, 13, 0.1);
+}
+nav ul li:last-child{
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+nav ul li a{
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding-left: 40px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  border-left: 3px solid transparent;
+}
+nav ul li.active a{
+  color: rgb(255, 255, 255);
+  background: #1e1e1e;
+  border-left-color: rgb(0, 0, 0);
+}
+nav ul li a:hover{
+  background: #1e1e1e;
+}
+nav ul ul{
+  position: static;
+  display: none;
+}
+nav ul .feat-show.show{
+  display: block;
+}
+nav ul .serv-show.show1{
+  display: block;
+}
+nav ul ul li{
+  line-height: 42px;
+  border-top: none;
+}
+nav ul ul li a{
+  font-size: 17px;
+  color: #e6e6e6;
+  padding-left: 80px;
+}
+nav ul li.active ul li a{
+  color: #e6e6e6;
+  background: #484444;
+  border-left-color: transparent;
+}
+nav ul ul li a:hover{
+  color: rgb(222, 230, 77)!important;
+  background: #1e1e1e!important;
+}
+nav ul li a span{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: transform 0.4s;
+}
+nav ul li a span.rotate{
+  transform: translateY(-50%) rotate(-180deg);
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #202020;
+  z-index: -1;
+  text-align: center;
+}
+.content .header{
+  font-size: 45px;
+  font-weight: 600;
+}
+.content p{
+  font-size: 30px;
+  font-weight: 500;
+}
+.logo{
+  margin-top: 3px;
+    height: 65px;
+}
+.rightsec{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+   
+
+    width: 500px;
+    color: black;
+   
+    font-weight: 600;
+}
+.fa-solid{
+    color: black;
+    transition: 0.5s;
+}
+.fa-solid:hover{
+    color: rgb(152, 145, 145);
+}
+.container{
+   
+    padding-left: 140px;
+    
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr ;
+    column-gap: 50px;
+    row-gap: 70px;
+
+    margin-bottom: 2000px;
+   
+}
+.login-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 400px;
+    background: #ebc04b;
+    border-radius: 10px;
+}
+.login-box h1 {
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid black;
+}
+.login-box form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .input-field{
+    position: relative;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+.input-field input{
+    width: 100%;
+    padding:0 5px ;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.input-field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .4s;
+}
+#Username{
+    color: black;
+    opacity: 0.7;
+}
+#password{
+    color: black;
+    opacity: 0.7;
+}
+.input-field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height:2.5px ;
+    background:black;
+    transition: .4s ;
+}
+.input-field input:focus ~ label,
+.input-field input:valid ~ label{
+    top: -5px;
+    color: black;
+}
+.input-field input:focus ~ span::before,
+.input-field input:valid ~ span::before{
+    width: 100%;
+
+}
+.forget-password{
+    margin: -5px 0 20px 5px;
+    color: black;
+    cursor: pointer;
+}
+.forget-password:hover{
+    text-decoration: underline;
+}
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border:none;
+    background-color: rgb(255, 156, 8);
+    border-radius: 25px;
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+    display: inline-block;
+}
+input[type="submit"]:hover{
+    background-color:black ;
+    color: rgb(255,156,8) ;
+}
+input[type="submit"]:active{
+    opacity: 0.3;
+}
+.signup-link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+}
+.signup-link a{
+    color: blue;
+    text-decoration: none;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
