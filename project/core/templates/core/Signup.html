@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://kit.fontawesome.com/e832911ff6.js" crossorigin="anonymous"></script>
+
+    <title>Sign up</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Signup.css' %}">
+</head>
+<body>
+    <div class="main-bar">
+        <div class="leftsec">
+            <img class="logo" src="{% static 'pimco/dd3c2c6c-8856-4585-9d53-3fce5accb7c5-removebg-preview.png' %}" >
+            <div class="btn">
+                <span class="fas fa-bars"></span>
+             </div>
+             <nav class="sidebar">
+                <div class="text">
+                   Side Menu
+                </div>
+                <ul>
+                   
+                   <li><a href="#footer">About Us</a></li>
+                   <li><a href="#footer">Contact Us</a></li>
+                   
+                </ul>
+             </nav>
+             
+               
+             
+       
+
+
+        </div>
+
+
+        <div class="middlesec">
+        
+
+
+        </div>
+        <div class="rightsec">
+    
+          <a href="#footer"><i class="fa-solid fa-address-card fa-2x"></i></a>
+          <a href="#footer"><i class="fa-solid fa-phone fa-2x"></i></a>
+          
+
+           
+</div>
+    </div>
+    <div class="registration-box">
+
+        <h1>Registration</h1>
+
+        <form method="POST" id="Form">
+          {% csrf_token %}
+          
+          
+
+          <div class="input-field">
+            
+           
+            <input type="text" required id="First" placeholder="First name" name="first_name">
+            <span></span>
+            <label id="first" ></label>
+            
+          </div>
+
+          <div class="input-field">
+
+            
+            <input type="text" required id="Second" placeholder="Last name" name="last_name">
+            <span></span>
+            <label id="second" ></label>
+            
+          </div>
+        
+          <div class="input-field">
+
+            
+            <input type="email" required id="Email" placeholder="Email" name="email" >
+              <span></span>
+              <label id="email" ></label>
+              
+          </div>
+
+          <div class="input-field">
+
+            
+            <input type="text" required id="username" placeholder="Username" name="username">
+              <span></span>
+              <label id="Username" ></label>
+              
+          </div>
+
+          <div class="input-field">
+
+           
+            <input type="password" required id="Password" placeholder="Password" name="password">
+              <span></span>
+              <label id="password"></label>
+
+          </div>
+
+          <input type="submit" value="Sign up" id="Btn" onclick=" return validate();" >
+
+            <div>
+                <div class="login-link">
+                    Already have an account? <a href="{% url 'login' %}">Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+   
+   <footer>
+    <div class="footer-container" id="footer">
+      <div>
+        <h2>About us</h2>
+        <ul>
+         
+          <li>The company has established from more than 35 years ago</li>
+          <li>After the success of the product in the market,a branch name "pmico" </li>
+          <li> was created for the product to be written on each piece produced</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact us</h2>
+        <ul>
+          <li><a href="#">+2 01060357310</a></li>
+          <li><a href="#">El Amireyah El Sawah, 45A portsaid street, cairo, Egpyt</a></li>
+          <li><a href="#">info@pmicoelcaptain.com</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </footer>
+    
+
+
+  <script src="{% static 'js/commonjs.js' %}"></script>
+  <script src="{% static 'js/Signup.js' %}"></script>
+</body>
+</html>
