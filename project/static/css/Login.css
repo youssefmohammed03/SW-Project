@@ -199,7 +199,7 @@ margin-top: 3px;
   width: 500px;
   color: black;
   font-weight: 600;
-  padding-right: 200px; /* add space to the right */
+  padding-right: 100px; 
 }
 
 .rightsec a {
@@ -207,12 +207,12 @@ margin-top: 3px;
 }
 
 .rightsec a:first-child {
-  margin-left: 0; /* remove margin from the first icon */
-  margin-right: auto; /* push the first icon to the right as much as possible */
+  margin-left: 0; 
+  margin-right: 45px;
 }
 
 .rightsec a:last-child {
-  margin-right: 0; /* remove margin from the last icon */
+  margin-right: 0; 
 }
 .fa-solid{
   color: black;

@@ -196,15 +196,26 @@ margin-top: 3px;
   height: 65px;
 }
 .rightsec{
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px;
-  padding-left: 70px;
- 
-
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   width: 500px;
   color: black;
- 
   font-weight: 600;
+  padding-right: 100px; 
+}
+
+.rightsec a {
+  margin-left: 20px;
+}
+
+.rightsec a:first-child {
+  margin-left: 0; 
+  margin-right: 45px;
+}
+
+.rightsec a:last-child {
+  margin-right: 0; 
 }
 .fa-solid{
   color: black;

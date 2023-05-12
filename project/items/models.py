@@ -27,4 +27,7 @@ class Items(models.Model):
     
     def __str__(self):
         return self.name
+    
 
+class Order(models.Model):
+    items = models.ManyToManyField(Items)

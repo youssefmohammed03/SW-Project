@@ -201,22 +201,47 @@ nav ul li a span.rotate{
   margin-top: 3px;
     height: 65px;
 }
-.rightsec{
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px 1fr;
-   
+.rightsec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-gap: 10px;
+  width: 500px;
+  color: black;
+  font-weight: 600;
+}
 
-    width: 500px;
-    color: black;
-   
-    font-weight: 600;
+.fa-solid {
+  color: black;
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
 }
-.fa-solid{
-    color: black;
-    transition: 0.5s;
+
+.fa-solid:hover {
+  color: rgb(152, 145, 145);
 }
-.fa-solid:hover{
-    color: rgb(152, 145, 145);
+
+#user {
+  grid-column: 1;
+}
+
+#home {
+  grid-column: 2;
+}
+
+#aboutus {
+  grid-column: 3;
+}
+
+#contactus {
+  grid-column: 4;
+}
+#cart {
+  grid-column: 5;
+}
+#logout {
+  grid-column: 6;
+  font-size: xx-large;
 }
 
 p{
