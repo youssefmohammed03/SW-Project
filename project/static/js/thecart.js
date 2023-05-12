@@ -173,42 +173,34 @@ document.addEventListener('DOMContentLoaded', () => {
   generateCartList();
 });
 
-const saveOrderBtn = document.getElementById('save-order-btn');
-saveOrderBtn.addEventListener('click', saveOrder);
-
 function saveOrder() {
+  let itemsList = "";
   const items = localcart.getlocalcartitems('cartItems');
-  const itemIds = [];
-
   for (const [key, value] of items.entries()) {
-    itemIds.push(key);
+    itemsList += value.name + ",\n";
   }
 
-  fetch('/save_order/', {
+  const data = { itemsList: itemsList };
+
+  fetch('/items/save_order/', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({item_ids: itemIds})
+    body: JSON.stringify(data)
   })
   .then(response => {
     if (response.ok) {
-      window.location.href = '/ordersaved/';
-    } else if (response.status === 400) {
-      throw new Error('Invalid request');
-    } else if (response.status === 401) {
-      throw new Error('Unauthorized');
-    } else if (response.status === 403) {
-      throw new Error('Forbidden');
-    } else if (response.status === 404) {
-      throw new Error('Resource not found');
+      window.location.href = '/items/ordersaved/';
     } else {
-      throw new Error('Unknown error');
+      alert('Error saving order');
     }
   })
   .catch(error => {
     console.error(error);
-    alert(`Failed to save order: ${error.message}`);
+    alert('Error saving order');
   });
 }
+
+const checkoutButton = document.querySelector('.checkout');
+checkoutButton.addEventListener('click', saveOrder);

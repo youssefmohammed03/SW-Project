@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  .container3 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:#ebc04b;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  h1 {
+    font-size: 36px;
+    margin-top: 0;
+    color: #333;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #2e2b2b;
+  }
+  #map {
+    height: 400px;
+    
+    margin-top: 20px;
+  }
+  .input-field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height:2.5px ;
+    background:black;
+    transition: .4s ;
+  }
+  input::placeholder {
+  color: rgb(65, 62, 62);
+  }
+  input[type="submit"]{
+    width: 50%;
+    height: 50px;
+    border:none;
+    background-color: rgb(255, 156, 8);
+    border-radius: 25px;
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+    display: inline-block;
+  }
+  input[type="submit"]:hover{
+    background-color:black ;
+    color: rgb(255,156,8) ;
+  }
+  input[type="submit"]:active{
+    opacity: 0.3;
+  }

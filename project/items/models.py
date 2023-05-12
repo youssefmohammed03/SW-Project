@@ -30,4 +30,4 @@ class Items(models.Model):
     
 
 class Order(models.Model):
-    items = models.ManyToManyField(Items)
+    items = models.TextField(default= 'items ordered')

@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>order saved</title>
+    <title>Thank You for Your Order</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ordersaved.css' %}">
 </head>
 <body>
-    <h1>your order is saved and ready to be picked up</h1>
+    <div class="container3">
+        <h1>Thank You for Your Order</h1>
+        <p>Your order has been received and is being processed</p>
+        <p>Please pay Vodafone Cash at this Number <b>+201060357310</b> For confirming the collection </p>
+        <p>After payment visit us after 1 day to collect your order at our store</p>
+        <b style="color: #881616;">OUR LOCATION</b>
+        
+        <div id="map">
+            <iframe src="https://www.google.com/maps/place/30%C2%B003'06.1%22N+31%C2%B015'23.1%22E/@30.0517,31.25641,17z/data=!4m4!3m3!8m2!3d30.0517!4d31.25641?hl=en" width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div>
+            <a href="{% url 'index' %}"><input type="submit" value="Home Page" id="loginbtn"></a>
+        </div>
+
+      </div>
+      
+      
 </body>
 </html>

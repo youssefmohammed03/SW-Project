@@ -1,7 +1,10 @@
+import json
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404 , redirect
 from django.contrib.auth.decorators import login_required
 from .models import Items, Category2 , Order
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -36,10 +39,13 @@ def ordersaved(request):
     return render(request, 'item/ordersaved.html')
 
 
-@require_POST
+@csrf_exempt
 def save_order(request):
-    item_ids = request.POST.getlist('item_ids[]')
-    items = Items.objects.filter(id__in=item_ids)
-    order = Order.objects.create()
-    order.items.set(items)
-    return redirect('ordersaved')
+    if request.method == 'POST':
+        body_unicode = request.body.decode('utf-8')
+        body_data = json.loads(body_unicode)
+        items_list = body_data.get('itemsList', '')
+        order = Order(items=items_list)
+        order.save()
+        return JsonResponse({'success': True})
+    return render(request, 'Products.html')

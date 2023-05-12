@@ -60,24 +60,23 @@
                       <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket" id="logout"></i></a>
                     {% endif %}
 
-                     <div class="cart-box hide">
+                    <div class="cart-box hide">
                       
                      
                       <div class="cart-window ">
                         <h2>Your Cart</h2>
-                        <form method="POST" action="{% url 'save_order' %}">
-                          {% csrf_token %}
-                          <div class="cart-wrapper">
-                          </div>
-                          <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                          {% for item in items %}
-                              <input type="hidden" name="item_names[]" value="{{ item.name }}">
-                          {% endfor %}
-                          <button class="checkout" id="save-order-btn">Save the order for Pick up</button>
-                      </form>
+                        <div class="cart-wrapper">
+
+
+                        </div>
+                        <div class="subtotal">Subtotal= 0.00 EGP</div>
+                        <div class="cart-buttons">
+                        <button class="checkout">Proceed To Checkout</button>
                         </div>
                         
                       </div>
+
+                     </div>
 
                      </div>
         </div>
