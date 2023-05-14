@@ -31,3 +31,6 @@ class Items(models.Model):
 
 class Order(models.Model):
     items = models.TextField(default= 'items ordered')
+
+    def __str__(self):
+        return "order"

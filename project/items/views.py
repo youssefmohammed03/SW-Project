@@ -45,7 +45,24 @@ def save_order(request):
         body_unicode = request.body.decode('utf-8')
         body_data = json.loads(body_unicode)
         items_list = body_data.get('itemsList', '')
-        order = Order(items=items_list)
+        
+        items = items_list.strip().split(',')
+        item_counts = {}
+        
+        for item in items:
+            parts = item.strip().split("(")
+            name = parts[0].strip()
+            quantity = int(parts[1].strip().rstrip(")"))
+            if name in item_counts:
+                item_counts[name] += quantity
+            else:
+                item_counts[name] = quantity
+        
+        item_strings = [f"{item} ({quantity})" for item, quantity in item_counts.items()]
+        items_string = "\n".join(item_strings) 
+        order = Order(items=items_string)
         order.save()
+        
         return JsonResponse({'success': True})
+    
     return render(request, 'Products.html')

@@ -177,8 +177,10 @@ function saveOrder() {
   let itemsList = "";
   const items = localcart.getlocalcartitems('cartItems');
   for (const [key, value] of items.entries()) {
-    itemsList += value.name + ",\n";
+    itemsList += `${value.name} (${value.quantity}), `;
   }
+  // Remove the trailing comma and space from the itemsList string
+  itemsList = itemsList.slice(0, -2);
 
   const data = { itemsList: itemsList };
 
