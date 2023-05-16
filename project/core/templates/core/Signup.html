@@ -53,6 +53,13 @@
            
 </div>
     </div>
+
+    {% if message %}
+    <script>
+        alert('{{ message }}');
+    </script>
+    {% endif %}
+
     <div class="registration-box">
 
         <h1>Registration</h1>

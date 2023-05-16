@@ -4,9 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.contrib import messages 
 
+
 @login_required
 def index(request):
     return render(request, 'core/Home.html')
+
+
 
 def signup(request):
     if request.method == 'POST':
@@ -16,18 +19,22 @@ def signup(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        try:
-            user = User.objects.create_user( username = username , password = password, email = email, first_name = first_name, last_name = last_name )
+        if User.objects.filter(email=email).exists():
+            message = 'Email is already taken'
+            messages.error(request, message)
+            return render(request, 'core/Signup.html', {'username': username, 'email': email, 'first_name': first_name, 'last_name': last_name, 'message': message})
+        elif User.objects.filter(username=username).exists():
+            message = 'Username is already taken'
+            messages.error(request, message)
+            return render(request, 'core/Signup.html', {'username': username, 'email': email, 'first_name': first_name, 'last_name': last_name, 'message': message})
+        else:
+            user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
             user.save()
-            messages.success(request, 'Your account has been created!')
+            message = 'Your account has been created!'
+            messages.success(request, message)
             return redirect('login')
-        except Exception as e:
-            messages.error(request, 'An error occurred while creating your account: {}'.format(str(e)))
-            return render(request, 'core/Signup.html', {'username': username, 'email': email, 'first_name': first_name, 'last_name': last_name})
-        
     else:
         return render(request, 'core/Signup.html')
-
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')

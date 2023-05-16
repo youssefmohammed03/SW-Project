@@ -10,19 +10,19 @@ function validate(){
 
 
     if(usernameval == ""){
-      alert("Username cannont be blank");
+      alert("Username cannot be blank");
       return false;
     }
     else if(usernameval.length <=2){
-      alert("Username cannont be less than 3 char");
+      alert("Username cannot be less than 3 char");
       return false;
     }
     if(passwordval == ""){
-      alert("Password cannont be blank");
+      alert("Password cannot be blank");
       return false;
     }
     else if(passwordval.length <=5){
-      alert("Password cannont be less than 6");
+      alert("Password cannot be less than 6");
       return false;
   }
   return true;
