@@ -81,26 +81,28 @@
                      </div>
         </div>
    
-    <div class="product-page-name">
-      <h1 class="page-name-text">{{ category_name }}</h1>
-    </div>
-    <div class="container">
-      {% for item in items %}
-      <div data-id="{{ item.id }}" class="product-box">
-        <img class="in-box-pics1" src="{{ item.image.url }}">
-        <div class="description">
-          <p class="d-font">{{ item.name }}</p>
-          <div class="price-tag">
-            <p class="ptf"><b>{{ item.price }} EGP</b></p>
-          </div>
-          <div class="buttons">
-            <button class="add_to_cart">Add To Cart</button>
-            <a href="{% url 'details' item_id=item.id %}"><button class="buy_now">View</button></a>
-          </div>
+        <div class="product-page-name">
+          <h1 class="page-name-text">{{ category_name }}</h1>
         </div>
-      </div>
-      {% endfor %}
-    </div>
+        <div class="container">
+          {% for item in items %}
+          {% if not item.sold %}
+          <div data-id="{{ item.id }}" class="product-box">
+            <img class="in-box-pics1" src="{{ item.image.url }}">
+            <div class="description">
+              <p class="d-font">{{ item.name }}</p>
+              <div class="price-tag">
+                <p class="ptf"><b>{{ item.price }} EGP</b></p>
+              </div>
+              <div class="buttons">
+                <button class="add_to_cart">Add To Cart</button>
+                <a href="{% url 'details' item_id=item.id %}"><button class="buy_now">View</button></a>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
 
    <footer>
     <div class="footer-container" id="footer">
