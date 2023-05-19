@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Order</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ordersaved.css' %}">
+</head>
+<body>
+    <div class="container3">
+        <h1>Thank You for Your Order</h1>
+        <p>Your order has been received and is being processed</p>
+        <p>Please pay Vodafone Cash at this Number <b>+201060357310</b> For confirming the collection </p>
+        <p>After payment visit us after 1 day to collect your order at our store</p>
+        <b style="color: #881616;">OUR LOCATION</b>
+        
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d410.20352594444034!2d31.25651574239918!3d30.051969590244987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584116e5103b01%3A0x6908946a04d7fb47!2z2YXYudin2YXZhCDYp9mE2YHYpyBBbGZhIExhYnM!5e0!3m2!1sen!2seg!4v1684105106862!5m2!1sen!2seg" width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div>
+            <a href="{% url 'index' %}"><input type="submit" value="Home Page" id="loginbtn"></a>
+        </div>
+
+      </div>
+      
+      
+</body>
+</html>

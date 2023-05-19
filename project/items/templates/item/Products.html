@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://kit.fontawesome.com/e832911ff6.js" crossorigin="anonymous"></script>
+    <title>Products</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+</head>
+<body>
+    <div class="main-bar">
+        <div class="leftsec">
+          <img class="logo" src="{% static 'pimco/dd3c2c6c-8856-4585-9d53-3fce5accb7c5-removebg-preview.png' %}" >
+            <div class="btn">
+                <span class="fas fa-bars"></span>
+             </div>
+             <nav class="sidebar">
+                <div class="text">
+                   Side Menu
+                </div>
+                <ul>
+                   <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                   
+                   <li>
+                      <a href="#" class="serv-btn">Our products
+                      <span class="fas fa-caret-down second"></span>
+                      </a>
+                      <ul class="serv-show">
+                        <li><a href="{% url 'products' %}?category=1">Carbide Burrs</a></li>
+                        <li><a href="{% url 'products' %}?category=4">Tool Holders</a></li>
+                        <li><a href="{% url 'products' %}?category=2">Carbide inserts</a></li>
+                        <li><a href="{% url 'products' %}?category=3">Mills</a></li>
+                      </ul>
+                   </li>
+                   <li><a href="#footer">About Us</a></li>
+                   <li><a href="#footer">Contact Us</a></li>
+                   
+                </ul>
+             </nav>
+             
+               
+             
+        </div>
+        <div class="middlesec">
+        </div>
+        <div class="rightsec">
+                    <a href="{% url 'profile' %}"><i class="fa-solid fa-user fa-2x" id="user"></i></a>
+                    <a href="{% url 'index' %}"><i class="fa-solid fa-house fa-2x" id="home"></i></a>
+                     
+                    <a href="#footer"><i class="fa-solid fa-address-card fa-2x" id="aboutus"></i></a>
+                    <a href="#footer"><i class="fa-solid fa-phone fa-2x" id="contactus"></i></a>
+                    <i class="fa-solid fa-cart-shopping fa-2x " id="cart"></i>
+                    
+                    {% if user.is_authenticated %}
+                      <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket" id="logout"></i></a>
+                    {% endif %}
+
+                    <div class="cart-box hide">
+                      
+                     
+                      <div class="cart-window ">
+                        <h2>Your Cart</h2>
+                        <div class="cart-wrapper">
+
+
+                        </div>
+                        <div class="subtotal">Subtotal= 0.00 EGP</div>
+                        <div class="cart-buttons">
+                        <button class="checkout">Proceed To Checkout</button>
+                        </div>
+                        
+                      </div>
+
+                     </div>
+
+                     </div>
+        </div>
+   
+        <div class="product-page-name">
+          <h1 class="page-name-text">{{ category_name }}</h1>
+        </div>
+        <div class="container">
+          {% for item in items %}
+          {% if not item.sold %}
+          <div data-id="{{ item.id }}" class="product-box">
+            <img class="in-box-pics1" src="{{ item.image.url }}">
+            <div class="description">
+              <p class="d-font">{{ item.name }}</p>
+              <div class="price-tag">
+                <p class="ptf"><b>{{ item.price }} EGP</b></p>
+              </div>
+              <div class="buttons">
+                <button class="add_to_cart">Add To Cart</button>
+                <a href="{% url 'details' item_id=item.id %}"><button class="buy_now">View</button></a>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+   <footer>
+    <div class="footer-container" id="footer">
+      <div>
+        <h2>About us</h2>
+        <ul>
+         
+          <li>The company has established from more than 35 years ago</li>
+          <li>After the success of the product in the market,a branch name "pmico" </li>
+          <li> was created for the product to be written on each piece produced</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact us</h2>
+        <ul>
+          <li><a href="#">+2 01060357310</a></li>
+          <li><a href="#">El Amireyah El Sawah, 45A portsaid street, cairo, Egypt</a></li>
+          <li><a href="#">info@pmicoelcaptain.com</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </footer>
+  <script src="{% static 'js/commonjs.js' %}"></script>
+  <script defer src="{% static 'js/thecart.js' %}"></script>
+</body>
+ 
+</html>
